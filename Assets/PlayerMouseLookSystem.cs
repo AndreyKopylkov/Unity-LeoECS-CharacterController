@@ -5,12 +5,23 @@ using UnityEngine;
 
 sealed class PlayerMouseLookSystem : IEcsRunSystem, IEcsInitSystem
 {
+    private readonly EcsFilter<PlayerTag> _playerFilter = null;
     private readonly EcsFilter<PlayerTag, ModelComponent, MouseLookDirectionComponent> _mouseLookFilter = null;
+    
     private Quaternion _startTransformRotation;
 
     public void Init()
     {
-        _startTransformRotation = _mouseLookFilter.GetEntity(0).Get<ModelComponent>().ModelTransform.rotation;
+        foreach (var i in _playerFilter)
+        {
+            ref var entity = ref _playerFilter.GetEntity(i);
+            ref var model = ref entity.Get<ModelComponent>();
+
+            _startTransformRotation = model.ModelTransform.rotation;
+        }
+        
+        // Подходит только для одного игрока
+        // _startTransformRotation = _mouseLookFilter.GetEntity(0).Get<ModelComponent>().ModelTransform.rotation;
     }
 
     public void Run()
