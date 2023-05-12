@@ -50,7 +50,9 @@ public class EcsGameStartup : MonoBehaviour
     {
         _systems.
             Add(new PlayerInputSystem()).
-            Add(new MovementSystem())
+            Add(new PlayerMouseInputSystem()).
+            Add(new MovementSystem()).
+            Add(new PlayerMouseLookSystem())
             ;
     }
 
