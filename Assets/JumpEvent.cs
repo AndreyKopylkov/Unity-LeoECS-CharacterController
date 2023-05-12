@@ -1,0 +1,1 @@
+﻿internal partial struct JumpEvent {}

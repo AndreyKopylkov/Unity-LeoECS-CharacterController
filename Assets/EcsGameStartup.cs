@@ -51,14 +51,17 @@ public class EcsGameStartup : MonoBehaviour
         _systems.
             Add(new CursorLockSystem()).
             Add(new PlayerInputSystem()).
+            Add(new PlayerJumpSendEventSystem()).
+            Add(new PlayerGroundCheckSystem()).
             Add(new PlayerMouseInputSystem()).
             Add(new MovementSystem()).
-            Add(new PlayerMouseLookSystem())
+            Add(new PlayerMouseLookSystem()).
+            Add(new PlayerJumpSystem())
             ;
     }
 
     private void AddOneFrames()
     {
-        
+        _systems.OneFrame<JumpEvent>();
     }
 }

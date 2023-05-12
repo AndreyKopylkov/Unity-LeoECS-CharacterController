@@ -19,9 +19,15 @@ sealed class MovementSystem : IEcsRunSystem
 
             ref var characterController = ref movableComponent.CharacterController;
             ref var moveSpeed = ref movableComponent.MoveSpeed;
-           
-            var rawDiraction = (transform.right * direction.x) + (transform.forward * direction.z);
-            characterController.Move(rawDiraction * moveSpeed * Time.deltaTime);
+
+            var rawDirection = (transform.right * direction.x) + (transform.forward * direction.z);
+
+            //TODO: вынести в отдельную систему GravitySystem или PhysicSystem
+            ref var velocity = ref movableComponent.Velocity;
+            velocity.y += movableComponent.Gravity * Time.deltaTime;
+            
+            characterController.Move(rawDirection * moveSpeed * Time.deltaTime
+                                     + velocity * Time.deltaTime);
         }
     }
 }

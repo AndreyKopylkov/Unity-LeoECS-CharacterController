@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Leopotam.Ecs;
 using UnityEngine;
 
-sealed class PlayerMouseLookSystem : IEcsRunSystem, IEcsInitSystem
+sealed partial class PlayerMouseLookSystem : IEcsRunSystem, IEcsInitSystem
 {
     private readonly EcsFilter<PlayerTag> _playerFilter = null;
     private readonly EcsFilter<PlayerTag, ModelComponent, MouseLookDirectionComponent> _mouseLookFilter = null;
