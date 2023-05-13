@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
+    ReloadTimer: 3
     Force: 2
 --- !u!114 &207491224
 MonoBehaviour:

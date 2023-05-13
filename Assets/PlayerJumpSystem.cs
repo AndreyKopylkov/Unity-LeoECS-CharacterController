@@ -3,7 +3,9 @@ using UnityEngine;
 
 sealed partial class PlayerJumpSystem : IEcsRunSystem
 {
-    private readonly EcsFilter<PlayerTag, GroundSphereComponent, JumpComponent, JumpEvent> _jumpFilter = null;
+    private readonly
+        EcsFilter<PlayerTag, GroundSphereComponent, JumpComponent, JumpEvent>.
+        Exclude<BlockJumpDuration> _jumpFilter = null;
 
     public void Run()
     {
@@ -18,6 +20,7 @@ sealed partial class PlayerJumpSystem : IEcsRunSystem
             if(!groundCheck.IsGrounded) return; 
 
             velocity.y = Mathf.Sqrt(jumpComponent.Force * -2f * movable.Gravity);
+            entity.Get<BlockJumpDuration>().DurationTimer = jumpComponent.ReloadTimer;
         }
     }
 }
