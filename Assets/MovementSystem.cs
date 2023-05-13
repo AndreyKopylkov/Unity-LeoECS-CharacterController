@@ -1,5 +1,6 @@
 ﻿using Leopotam.Ecs;
 using UnityEngine;
+using UnityEngine.Pool;
 
 sealed class MovementSystem : IEcsRunSystem
 {
@@ -30,4 +31,15 @@ sealed class MovementSystem : IEcsRunSystem
                                      + velocity * Time.deltaTime);
         }
     }
+    
 }
+
+// public class SpawnFactory
+// {
+//     public GameObject ObjectToSpawn;
+//
+//     public GameObject Spawn()
+//     {
+//         var go = ;
+//     }
+// }

@@ -16,5 +16,7 @@ public class EcsTriggerChecker : MonoBehaviour
         {
             Message = "Player entered"
         });
+
+        var entity = other.GetComponent<EntityReference>().Entity;
     }
 }

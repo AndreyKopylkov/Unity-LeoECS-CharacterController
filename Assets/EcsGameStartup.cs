@@ -64,6 +64,9 @@ public class EcsGameStartup : MonoBehaviour
 
     private void AddOneFrames()
     {
-        _systems.OneFrame<JumpEvent>();
+        _systems.
+            OneFrame<JumpEvent>().
+            OneFrame<InitializeEntityRequest>()
+            ;
     }
 }
