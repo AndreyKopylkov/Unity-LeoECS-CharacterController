@@ -7,6 +7,8 @@ using Voody.UniLeo;
 
 public class EcsGameStartup : MonoBehaviour
 {
+    [SerializeField] private GameObject _injectedGAForExample;
+
     private EcsWorld _world;
     private EcsSystems _systems;
 
@@ -43,7 +45,7 @@ public class EcsGameStartup : MonoBehaviour
 
     private void AddInjections()
     {
-        
+        _systems.Inject(_injectedGAForExample);
     }
 
     private void AddSystems()
@@ -58,7 +60,8 @@ public class EcsGameStartup : MonoBehaviour
             Add(new PlayerMouseInputSystem()).
             Add(new MovementSystem()).
             Add(new PlayerMouseLookSystem()).
-            Add(new PlayerJumpSystem())
+            Add(new PlayerJumpSystem()).
+            Add(new GameObjectActiveSystem())
             ;
     }
 
