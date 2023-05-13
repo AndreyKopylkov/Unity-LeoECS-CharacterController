@@ -1,0 +1,3 @@
+﻿internal struct PerformDeathEvent
+{
+}

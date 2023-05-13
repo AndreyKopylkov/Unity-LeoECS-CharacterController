@@ -51,6 +51,7 @@ public class EcsGameStartup : MonoBehaviour
     private void AddSystems()
     {
         _systems.
+            Add(new EntityInitializeSystem()).
             Add(new DebugSystem()).
             Add(new JumpBlockSystem()).
             Add(new CursorLockSystem()).
@@ -61,7 +62,8 @@ public class EcsGameStartup : MonoBehaviour
             Add(new MovementSystem()).
             Add(new PlayerMouseLookSystem()).
             Add(new PlayerJumpSystem()).
-            Add(new GameObjectActiveSystem())
+            Add(new GameObjectActiveSystem()).
+            Add(new DeathSystem())
             ;
     }
 
