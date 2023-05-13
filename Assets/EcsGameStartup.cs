@@ -49,6 +49,7 @@ public class EcsGameStartup : MonoBehaviour
     private void AddSystems()
     {
         _systems.
+            Add(new DebugSystem()).
             Add(new JumpBlockSystem()).
             Add(new CursorLockSystem()).
             Add(new PlayerInputSystem()).
